@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\ApiAppSample20190709025912 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ManishSampleApp - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

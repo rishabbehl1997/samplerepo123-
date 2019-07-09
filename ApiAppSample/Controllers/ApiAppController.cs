@@ -47,5 +47,21 @@ namespace ApiAppSample.Controllers
             var response = await client.GetAsync("https://postman-echo.com/get?" + secretName + "=" + valueSecret + "");
             return response;
         }
+
+        // GET api/values/rishabkeyvault
+        [SwaggerOperation("GetByKeyVaultName")]
+        [SwaggerResponse(HttpStatusCode.OK)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [Route("api/KeyVaultsGetCredentials1")]
+        public async System.Threading.Tasks.Task<String> Get(int a)
+        {
+            AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+            var keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+            keyVault = System.Configuration.ConfigurationManager.AppSettings["keyVault"];
+            secretName = System.Configuration.ConfigurationManager.AppSettings["secretName"];
+            var secret = await keyVaultClient.GetSecretAsync("https://" + keyVault + ".vault.azure.net/secrets/" + secretName + "").ConfigureAwait(false);
+            valueSecret = secret.Value;
+            return valueSecret;
+        }
     }
 }
