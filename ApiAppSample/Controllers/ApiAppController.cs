@@ -44,7 +44,8 @@ namespace ApiAppSample.Controllers
             var secret = await keyVaultClient.GetSecretAsync("https://" + keyVault + ".vault.azure.net/secrets/" + secretName + "").ConfigureAwait(false);
             valueSecret = secret.Value;
             HttpClient client = new HttpClient();
-            var response = await client.GetAsync("https://postman-echo.com/get?" + secretName + "=" + valueSecret + "");
+            string url = System.Configuration.ConfigurationManager.AppSettings["url"];
+            var response = await client.GetAsync(url+valueSecret);
             return response;
         }
 
