@@ -31,10 +31,10 @@ namespace ApiAppSample.Controllers
         }
 
         // GET api/values/rishabkeyvault
-        [SwaggerOperation("GetByKeyVaultName")]
+        [SwaggerOperation("GetOdataResponseBySecretValue")]
         [SwaggerResponse(HttpStatusCode.OK)]
         [SwaggerResponse(HttpStatusCode.NotFound)]
-        [Route("api/KeyVaultsGetCredentials")]
+        [Route("api/GetOdataResponse")]
         public async System.Threading.Tasks.Task<HttpResponseMessage> Get()
         {
             AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
@@ -51,10 +51,10 @@ namespace ApiAppSample.Controllers
         }
 
         // GET api/values/rishabkeyvault
-        [SwaggerOperation("GetByKeyVaultName")]
+        [SwaggerOperation("GetSecretValueByKeyVaultName")]
         [SwaggerResponse(HttpStatusCode.OK)]
         [SwaggerResponse(HttpStatusCode.NotFound)]
-        [Route("api/KeyVaultsGetCredentials1")]
+        [Route("api/GetKeyVaultSecretValue")]
         public async System.Threading.Tasks.Task<String> Get(int a)
         {
             AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
