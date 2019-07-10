@@ -45,7 +45,8 @@ namespace ApiAppSample.Controllers
             valueSecret = secret.Value;
             HttpClient client = new HttpClient();
             string url = System.Configuration.ConfigurationManager.AppSettings["url"];
-            var response = await client.GetAsync(url+valueSecret);
+            //Change below link used in client.GetAsync() to "https://your-vendor-api-name.azurewebsites.net"
+            var response = await client.GetAsync("https://mockresponseapi.azurewebsites.net" + url + valueSecret);
             return response;
         }
 
