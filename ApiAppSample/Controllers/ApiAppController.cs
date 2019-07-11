@@ -18,16 +18,10 @@ namespace ApiAppSample.Controllers
         string secretName;
         // GET api/values
         [SwaggerOperation("GetTestSample")]
+        [Route("api/CheckApiAppTestResponse")]
         public IEnumerable<string> Get(string val)
         {
             return new string[] { "TEST API SAMPLE COMPLETE" };
-        }
-
-        [HttpGet]
-        [System.Web.Http.Route("Api/Add")]
-        public int Add(int a, int b)
-        {
-            return a + b;
         }
 
         // GET api/values/rishabkeyvault
