@@ -18,7 +18,7 @@ namespace ApiAppSample.Controllers
         string secretName;
         // GET api/values
         [SwaggerOperation("GetTestSample")]
-        [Route("api/CheckApiAppTestResponse")]
+        [Route("api/TestApiAvailaility")]
         public IEnumerable<string> Get(string val)
         {
             return new string[] { "TEST API SAMPLE COMPLETE" };
